@@ -1,0 +1,13 @@
+# Environment variables - NEVER commit this
+.env
+
+# Docker volumes
+db_data/
+uploads/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

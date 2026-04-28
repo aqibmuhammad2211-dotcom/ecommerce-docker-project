@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx create-next-app@latest frontend --typescript --eslint --tailwind --app --no-src-dir --import-alias \"@/*\" --yes)",
+      "Bash(docker compose:*)",
+      "Bash(docker --version)",
+      "Bash(docker pull:*)",
+      "Bash(curl -s -X POST \"http://localhost:8055/auth/login\" -H \"Content-Type: application/json\" -d \"{\\\\\"email\\\\\":\\\\\"aqibmughal@123.com\\\\\",\\\\\"password\\\\\":\\\\\"Aqibmughal@12\\\\\"}\")",
+      "Bash(docker exec:*)"
+    ]
+  }
+}
