@@ -1,6 +1,7 @@
 async function getProducts() {
   try {
-    const res = await fetch("http://directus:8055/items/products?fields=*,category.name", {
+    const directusUrl = process.env.NEXT_PUBLIC_DIRECTUS_URL || "http://directus:8055";
+    const res = await fetch(`${directusUrl}/items/products?fields=*,category.name`, {
       cache: "no-store",
     });
     const data = await res.json();
