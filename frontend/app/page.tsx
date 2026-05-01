@@ -4,7 +4,7 @@ const DIRECTUS_PUBLIC_URL = process.env.NEXT_PUBLIC_DIRECTUS_URL || "http://loca
 
 async function getProducts() {
   try {
-    const res = await fetch(`${DIRECTUS_INTERNAL_URL}/items/products?fields=*,image.id,category.name`, {
+    const res = await fetch(`${DIRECTUS_INTERNAL_URL}/items/products?fields=*,category.name`, {
       cache: "no-store",
     });
     const data = await res.json();
@@ -24,9 +24,9 @@ export default async function Home() {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {products.map((product: any) => (
           <div key={product.id} className="border rounded-xl shadow hover:shadow-md transition overflow-hidden">
-            {product.image?.id ? (
+            {product.image ? (
               <img
-                src={`${DIRECTUS_PUBLIC_URL}/assets/${product.image.id}`}
+                src={`${DIRECTUS_PUBLIC_URL}/assets/${typeof product.image === "string" ? product.image : product.image.id}`}
                 alt={product.name}
                 className="w-full h-48 object-cover"
               />
