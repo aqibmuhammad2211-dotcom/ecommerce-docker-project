@@ -60,6 +60,8 @@ services:
         condition: service_healthy
     environment:
       NEXT_PUBLIC_DIRECTUS_URL: ${NEXT_PUBLIC_DIRECTUS_URL}
+      DIRECTUS_ADMIN_EMAIL: ${ADMIN_EMAIL}
+      DIRECTUS_ADMIN_PASSWORD: ${ADMIN_PASSWORD}
     networks:
       - frontend
 
