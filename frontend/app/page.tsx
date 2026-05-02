@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 // Server-side fetches use the internal Docker network name; browser image URLs use the public host
 const DIRECTUS_INTERNAL_URL = process.env.DIRECTUS_INTERNAL_URL || "http://directus:8055";
 const DIRECTUS_PUBLIC_URL = process.env.NEXT_PUBLIC_DIRECTUS_URL || "http://localhost:8055";
@@ -23,7 +25,11 @@ export default async function Home() {
       <h1 className="text-3xl font-bold mb-8">Our Products</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {products.map((product: any) => (
-          <div key={product.id} className="border rounded-xl shadow hover:shadow-md transition overflow-hidden">
+          <Link
+            key={product.id}
+            href={`/products/${product.id}`}
+            className="border rounded-xl shadow hover:shadow-md transition overflow-hidden block"
+          >
             {product.image ? (
               <img
                 src={`${DIRECTUS_PUBLIC_URL}/assets/${typeof product.image === "string" ? product.image : product.image.id}`}
@@ -41,7 +47,7 @@ export default async function Home() {
               <p className="text-gray-700 mt-2 text-sm">{product.description}</p>
               <p className="text-lg font-bold mt-4">${parseFloat(product.price).toFixed(2)}</p>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </main>
