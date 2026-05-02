@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import AddToCartButton from "../../components/AddToCartButton";
 
 const DIRECTUS_URL = process.env.NEXT_PUBLIC_DIRECTUS_URL || "http://directus:8055";
 
@@ -47,6 +48,12 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
           ${parseFloat(product.price).toFixed(2)}
         </p>
         <p className="text-gray-600 leading-relaxed">{product.description}</p>
+        <AddToCartButton
+          id={String(product.id)}
+          name={product.name}
+          price={parseFloat(product.price)}
+          image={typeof product.image === "string" ? product.image : product.image?.id ?? null}
+        />
       </div>
     </main>
   );
