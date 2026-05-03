@@ -82,9 +82,12 @@ export default function CartPage() {
         <span className="text-xl font-bold">${totalPrice.toFixed(2)}</span>
       </div>
 
-      <button className="mt-4 w-full bg-blue-600 text-white py-3 rounded-xl font-semibold hover:bg-blue-700 active:scale-95 transition">
+      <Link
+        href="/checkout"
+        className="mt-4 w-full bg-blue-600 text-white py-3 rounded-xl font-semibold hover:bg-blue-700 active:scale-95 transition block text-center"
+      >
         Checkout
-      </button>
+      </Link>
 
       <Link href="/" className="block text-center text-sm text-blue-600 hover:underline mt-4">
         ← Continue shopping
