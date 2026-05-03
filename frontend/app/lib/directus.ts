@@ -1,4 +1,7 @@
-export const DIRECTUS_URL = process.env.DIRECTUS_INTERNAL_URL || "http://directus:8055";
+export const DIRECTUS_URL =
+  process.env.DIRECTUS_INTERNAL_URL ||
+  process.env.NEXT_PUBLIC_DIRECTUS_URL ||
+  "http://directus:8055";
 
 export async function getAdminToken(): Promise<string | null> {
   try {
